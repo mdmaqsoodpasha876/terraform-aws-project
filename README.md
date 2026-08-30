@@ -5,29 +5,39 @@ This project uses Terraform to provision a basic AWS web infrastructure consisti
 The project is created for learning and demonstrating Infrastructure as Code (IaC) with Terraform and AWS.
 
 Architecture
+
                          Internet
                             |
                             v
+                            
                   +-------------------+
                   | Application       |
                   | Load Balancer     |
                   +---------+---------+
+                  
                             |
+                            
                  +----------+----------+
+                 
                  |                     |
                  v                     v
+                 
           +-------------+       +-------------+
           | EC2 Server 1|       | EC2 Server 2|
           |   Subnet 1  |       |   Subnet 2  |
           | ap-south-1a |       | ap-south-1b |
           +-------------+       +-------------+
+          
                  |                     |
+                 
                  +----------+----------+
                             |
+                            
                      +-------------+
                      |     VPC     |
                      | 10.0.0.0/16 |
                      +-------------+
+                     
                      +-------------+
                      |     S3      |
                      |    Bucket   |
