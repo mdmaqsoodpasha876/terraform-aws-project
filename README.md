@@ -78,16 +78,16 @@ S3 public access block configuration
 
 **Project Structure**
 
-terraform-aws-project/
-|
-├── main.tf
-├── provider.tf
-├── variable.tf
-├── userdata.sh
-├── userdata1.sh
-├── .gitignore
-├── .terraform.lock.hcl
-└── README.md
+    terraform-aws-project/
+    |
+    ├── main.tf
+    ├── provider.tf
+    ├── variable.tf
+    ├── userdata.sh
+    ├── userdata1.sh
+    ├── .gitignore
+    ├── .terraform.lock.hcl
+    └── README.md
 
 Terraform state files and the .terraform directory are excluded from Git using .gitignore.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -96,19 +96,19 @@ Terraform state files and the .terraform directory are excluded from Git using .
 **Prerequisites**
 Before using this project, install the following:
 
-Terraform
-AWS CLI
-Git
-An AWS account
-
-**Verify Terraform:**
-terraform version
-
-**Verify AWS CLI:**
-aws --version
-
-**Verify your AWS credentials:**
-aws sts get-caller-identity
+    Terraform
+    AWS CLI
+    Git
+    An AWS account
+----------------------------------------------------------------------------------------------------
+    **Verify Terraform:**
+    terraform version
+      
+    **Verify AWS CLI:**
+    aws --version
+      
+    **Verify your AWS credentials:**
+    aws sts get-caller-identity
 
 **AWS Region**
 This project uses the AWS Mumbai region:
@@ -122,33 +122,33 @@ ap-south-1b
 
 **Getting Started**
 
-1. Clone the repository
-git clone https://github.com/mdmaqsoodpasha876/terraform-aws-project.git
-
-
-Move into the project directory:
-cd terraform-aws-project
-
-2. Initialize Terraform
-terraform init
-
-This downloads the required providers and initializes the Terraform working directory.
-
-3. Format the configuration
-terraform fmt
-
-4. Validate the configuration
-terraform validate
-
-5. Review the execution plan
-terraform plan
-Review the resources Terraform plans to create.
-
-6. Deploy the infrastructure
-terraform apply
-
-Enter: yes
-when Terraform asks for confirmation.
+    1. Clone the repository
+    git clone https://github.com/mdmaqsoodpasha876/terraform-aws-project.git
+    
+    
+    Move into the project directory:
+    cd terraform-aws-project
+    
+    2. Initialize Terraform
+    terraform init
+    
+    This downloads the required providers and initializes the Terraform working directory.
+    
+    3. Format the configuration
+    terraform fmt
+    
+    4. Validate the configuration
+    terraform validate
+    
+    5. Review the execution plan
+    terraform plan
+    Review the resources Terraform plans to create.
+    
+    6. Deploy the infrastructure
+    terraform apply
+    
+    Enter: yes
+    when Terraform asks for confirmation.
 
 
 **Access the Application**
