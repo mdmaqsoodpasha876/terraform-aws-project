@@ -43,8 +43,8 @@ Architecture
                      |    Bucket   |
                      +-------------+
 
-AWS Resources
 
+**AWS Resources**
 This project creates the following AWS resources:
 
 Networking
@@ -73,7 +73,11 @@ Health check configured on /
 Storage
 S3 bucket
 S3 public access block configuration
-Project Structure
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+**Project Structure**
+
 terraform-aws-project/
 |
 ├── main.tf
@@ -85,11 +89,11 @@ terraform-aws-project/
 ├── .terraform.lock.hcl
 └── README.md
 
-
 Terraform state files and the .terraform directory are excluded from Git using .gitignore.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Prerequisites
 
+**Prerequisites**
 Before using this project, install the following:
 
 Terraform
@@ -97,44 +101,36 @@ AWS CLI
 Git
 An AWS account
 
-Verify Terraform:
-
+**Verify Terraform:**
 terraform version
 
-
-Verify AWS CLI:
-
+**Verify AWS CLI:**
 aws --version
 
-
-Verify your AWS credentials:
-
+**Verify your AWS credentials:**
 aws sts get-caller-identity
 
-AWS Region
-
+**AWS Region**
 This project uses the AWS Mumbai region:
-
 ap-south-1
 
-
-The configuration uses Availability Zones:
-
+**The configuration uses Availability Zones:**
 ap-south-1a
 ap-south-1b
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Getting Started
+
+**Getting Started**
+
 1. Clone the repository
 git clone https://github.com/mdmaqsoodpasha876/terraform-aws-project.git
 
 
 Move into the project directory:
-
 cd terraform-aws-project
 
 2. Initialize Terraform
 terraform init
-
 
 This downloads the required providers and initializes the Terraform working directory.
 
@@ -146,48 +142,40 @@ terraform validate
 
 5. Review the execution plan
 terraform plan
-
-
 Review the resources Terraform plans to create.
 
 6. Deploy the infrastructure
 terraform apply
 
-
-Enter:
-
-yes
-
-
+Enter: yes
 when Terraform asks for confirmation.
 
-Access the Application
+
+**Access the Application**
 
 After deployment, Terraform displays the Application Load Balancer DNS name using the following output:
-
 loadbalancer = <ALB-DNS-NAME>
 
 
 Open the DNS name in a browser:
-
 http://<ALB-DNS-NAME>
-
 
 The Application Load Balancer distributes incoming HTTP requests between the two EC2 instances.
 
 Traffic Flow
-Client
-  |
-  | HTTP :80
-  v
-Application Load Balancer
-  |
-  +-------------------+
-  |                   |
-  v                   v
-EC2 Instance 1    EC2 Instance 2
-  |                   |
-  +---------+---------+
+
+    Client
+      |
+      | HTTP :80
+      v
+    Application Load Balancer
+      |
+    +-------------------+
+    |                   |
+    v                   v
+    EC2 Instance 1    EC2 Instance 2
+    |                   |
+    +---------+---------+
             |
          Target Group
 
@@ -195,16 +183,13 @@ EC2 Instance 1    EC2 Instance 2
 The ALB forwards traffic to the EC2 instances registered with the Target Group.
 
 The instances are configured using:
-
 userdata.sh
 userdata1.sh
 
 Terraform Variables
-
 The project uses Terraform variables for configurable values such as the VPC CIDR, subnet CIDR, and Availability Zone.
 
 Example:
-
 variable "cidr" {
   default = "10.0.0.0/16"
 }
@@ -217,41 +202,32 @@ variable "az" {
   default = "ap-south-1a"
 }
 
-
 These values can be modified according to your requirements.
 
-Destroy Infrastructure
 
+Destroy Infrastructure
 To delete all infrastructure created by Terraform:
 
-terraform destroy
+**terraform destroy**
 
 
 Review the resources that Terraform plans to delete and enter:
-
 yes
-
 
 Warning: terraform destroy permanently deletes the resources managed by this Terraform configuration.
 
 Security Considerations
-
 This project is primarily intended for learning and demonstration purposes.
-
 The current configuration allows:
-
 HTTP :80  ->  0.0.0.0/0
 SSH  :22  ->  0.0.0.0/0
-
-
 Allowing SSH from 0.0.0.0/0 means that SSH is accessible from anywhere on the Internet.
 
 For a production environment, SSH should be restricted to a trusted IP address or replaced with a more secure access method such as AWS Systems Manager Session Manager.
 
 The current S3 configuration also disables the S3 public access blocking features. This should be reviewed before using the configuration in a production environment.
 
-Terraform State
-
+**Terraform State**
 Terraform state files should not normally be committed to GitHub because they can contain sensitive infrastructure information.
 
 This project excludes the following files and directories:
@@ -316,7 +292,7 @@ Add GitHub Actions for Terraform CI/CD
 Add CloudWatch monitoring and logging
 Author
 
-Md Maqsood Pasha
+**Mohammed Maqsood Pasha**
 
 This project was created as a hands-on learning project for AWS, Terraform, and Infrastructure as Code.
 
